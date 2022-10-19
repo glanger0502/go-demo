@@ -3,6 +3,9 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'k8s/*'
+      - '.github/workflows/**'
   pull_request:
     branches: [ "main" ]
 
