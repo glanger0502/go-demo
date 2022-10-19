@@ -24,3 +24,6 @@ jobs:
         
     - name: Build container image
       run: docker build . -t ghcr.io/glanger0502/go-demo:$(echo $GITHUB_SHA | head -c7)
+      
+    - name: Log in to GitHub Packages
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
