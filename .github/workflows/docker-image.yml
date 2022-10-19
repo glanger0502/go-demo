@@ -30,3 +30,6 @@ jobs:
       
     - name: Push image to GitHub Packages
       run: docker push ghcr.io/glanger0502/go-demo:$(echo $GITHUB_SHA | head -c7)
+      
+    - name: Save DigitalOcean kubeconfig with short-lived credentials
+      run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ secrets.CLUSTER_NAME }}
